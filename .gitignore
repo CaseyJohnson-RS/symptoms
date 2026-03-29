@@ -1,0 +1,26 @@
+
+# Игнорировать всё
+*
+
+# Разрешить папку Assets и её содержимое
+!/Assets/
+
+# В папке Assets игнорировать всё кроме нужных папок
+/Assets/*
+!/Assets/Textures/
+!/Assets/Materials/
+!/Assets/Models/
+!/Assets/Prefabs/
+!/Assets/Scripts/
+!/Assets/Scenes/
+
+# Разрешить ВСЁ содержимое нужных папок
+!/Assets/Textures/**
+!/Assets/Materials/**
+!/Assets/Models/**
+!/Assets/Prefabs/**
+!/Assets/Scripts/**
+!/Assets/Scenes/**
+
+# Разрешить .gitignore
+!/.gitignore
