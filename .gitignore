@@ -12,6 +12,7 @@
 !/Assets/Models/
 !/Assets/Prefabs/
 !/Assets/Scripts/
+!/Assets/ScriptableObjects/
 !/Assets/Scenes/
 
 # Разрешить ВСЁ содержимое нужных папок
@@ -20,6 +21,7 @@
 !/Assets/Models/**
 !/Assets/Prefabs/**
 !/Assets/Scripts/**
+!/Assets/ScriptableObjects/**
 !/Assets/Scenes/**
 
 # Разрешить .gitignore
