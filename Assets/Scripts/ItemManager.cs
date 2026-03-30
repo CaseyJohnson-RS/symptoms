@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class ItemManager : MonoBehaviour
 {
     [Serializable]
-    public class Item
+    public struct Item
     {
         [SerializeField] public ItemInfo Info;
         [SerializeField] public int Count;
