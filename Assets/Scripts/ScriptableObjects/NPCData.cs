@@ -13,7 +13,7 @@ public struct QuestionAnswer
 public class NPCData : ScriptableObject
 {
     [Header("Common values"), Space(3)]
-    [SerializeField] private string name;
+    [SerializeField] private string _name;
     [SerializeField] private bool infected;
 
     [Header("Symptoms"), Space(3)]
@@ -37,7 +37,7 @@ public class NPCData : ScriptableObject
 
     // Interface
 
-    public string Name => name;
+    public string Name => _name;
     public bool Infected => infected;
 
     public float Temperature => temperature;
