@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine; // IT'S A DRAFT
 
 public class ShiftManager : MonoBehaviour
