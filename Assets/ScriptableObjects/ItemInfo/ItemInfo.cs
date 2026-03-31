@@ -4,13 +4,13 @@ public enum ItemType
 {
     TICKET,
     GUM,
-    PLAYER,
+    PLAYER, // Q: Переименовать в BOOMBOX из-за разночтения
     LUCKY_TICKET,
     FILM
 }
 
 [CreateAssetMenu(fileName = "ItemInfo", menuName = "Scriptable Objects/ItemInfo")]
-public class ItemInfo : ScriptableObject
+public class ItemInfo : ScriptableObject // Q: Почему "ItemInfo", а не "ItemData"?
 {
     [SerializeField] private ItemType type;
     [SerializeField] private string itemName;

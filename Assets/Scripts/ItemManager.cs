@@ -12,7 +12,7 @@ public class ItemManager : MonoBehaviour
         [SerializeField] public int Count;
         [SerializeField] public UnityEvent<Item> OnCountChanged;
 
-        public bool IsPresent()
+        public readonly bool IsPresent() // Q: Почему не через getter?
         {
             return Count > 0;
         }
@@ -23,7 +23,7 @@ public class ItemManager : MonoBehaviour
 
     public static ItemManager Instance { get; private set; }
 
-    public void AddTickets(int count)
+    public void AddTickets(int count) // Q: Нужен ли метод в публичном виде?
     {
         if (count <= 0)
         {
@@ -34,7 +34,7 @@ public class ItemManager : MonoBehaviour
         ticket.OnCountChanged.Invoke(ticket);
     }
 
-    public void RemoveTickets(int count)
+    public void RemoveTickets(int count) // Q: Нужен ли метод в публичном виде?
     {
         if (count <= 0)
         {
