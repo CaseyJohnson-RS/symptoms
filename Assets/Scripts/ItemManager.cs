@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[Serializable]
+public struct Item
+{
+    [SerializeField] public ItemData Data;
+    [SerializeField] public int Count;
+    [SerializeField] public UnityEvent<Item> OnCountChanged;
+    public readonly bool IsPresent => Count > 0;
+}
+
 public class ItemManager : MonoBehaviour
 {
-    [Serializable]
-    public struct Item
-    {
-        [SerializeField] public ItemInfo Info;
-        [SerializeField] public int Count;
-        [SerializeField] public UnityEvent<Item> OnCountChanged;
-
-        public readonly bool IsPresent() // Q: Почему не через getter?
-        {
-            return Count > 0;
-        }
-    }
-
     [SerializeField] private Item ticket;
     [SerializeField] private List<Item> items;
 
+    public Item Ticket => ticket;
+    public List<Item> Items => items;
+
     public static ItemManager Instance { get; private set; }
 
-    public void AddTickets(int count) // Q: Нужен ли метод в публичном виде?
+    public void AddTickets(int count)
     {
         if (count <= 0)
         {
@@ -34,7 +33,7 @@ public class ItemManager : MonoBehaviour
         ticket.OnCountChanged.Invoke(ticket);
     }
 
-    public void RemoveTickets(int count) // Q: Нужен ли метод в публичном виде?
+    public void RemoveTickets(int count)
     {
         if (count <= 0)
         {
@@ -50,12 +49,18 @@ public class ItemManager : MonoBehaviour
         ticket.OnCountChanged.Invoke(ticket);
     }
 
+    public Item GetItem(ItemType type)
+    {
+        Item item = items.Find(item => item.Data.Type == type);
+        return item;
+    }
+
     public void AddItem(ItemType type)
     {
-        Item item = items.Find(item => item.Info.Type == type);
-        if (item.Info.IsPurchaseOnce && item.IsPresent())
+        Item item = items.Find(item => item.Data.Type == type);
+        if (item.Data.IsPurchaseOnce && item.IsPresent)
         {
-            throw new InvalidOperationException($"Предмет {item.Info.Name} уже куплен");
+            throw new InvalidOperationException($"Предмет {item.Data.Name} уже куплен");
         }
 
         item.Count++;
@@ -64,41 +69,19 @@ public class ItemManager : MonoBehaviour
 
     public void RemoveItem(ItemType type)
     {
-        Item item = items.Find(item => item.Info.Type == type);
-        if (item.Info.IsPurchaseOnce)
+        Item item = items.Find(item => item.Data.Type == type);
+        if (item.Data.IsPurchaseOnce)
         {
-            throw new InvalidOperationException($"Предмет {item.Info.Name} нельзя потратить");
+            throw new InvalidOperationException($"Предмет {item.Data.Name} нельзя потратить");
         }
 
-        if (!item.IsPresent())
+        if (!item.IsPresent)
         {
-            throw new InvalidOperationException($"Предмет {item.Info.Name} отсутствует");
+            throw new InvalidOperationException($"Предмет {item.Data.Name} отсутствует");
         }
 
         item.Count--;
         item.OnCountChanged.Invoke(item);
-    }
-
-    public void AddListenerOnItem(ItemType type, UnityAction<Item> listener)
-    {
-        Item item = items.Find(item => item.Info.Type == type);
-        if (item.Info == null)
-        {
-            throw new ArgumentException($"Предмет типа {type} не найден");
-        }
-
-        item.OnCountChanged.AddListener(listener);
-    }
-
-    public void RemoveListenerFromItem(ItemType type, UnityAction<Item> listener)
-    {
-        Item item = items.Find(item => item.Info.Type == type);
-        if (item.Info == null)
-        {
-            throw new ArgumentException($"Предмет типа {type} не найден");
-        }
-
-        item.OnCountChanged.RemoveListener(listener);
     }
 
     public void AddListenerOnTickets(UnityAction<Item> listener)
@@ -111,6 +94,28 @@ public class ItemManager : MonoBehaviour
         ticket.OnCountChanged.RemoveListener(listener);
     }
 
+    public void AddListenerOnItem(ItemType type, UnityAction<Item> listener)
+    {
+        Item item = items.Find(item => item.Data.Type == type);
+        if (item.Data == null)
+        {
+            throw new ArgumentException($"Предмет типа {type} не найден");
+        }
+
+        item.OnCountChanged.AddListener(listener);
+    }
+
+    public void RemoveListenerFromItem(ItemType type, UnityAction<Item> listener)
+    {
+        Item item = items.Find(item => item.Data.Type == type);
+        if (item.Data == null)
+        {
+            throw new ArgumentException($"Предмет типа {type} не найден");
+        }
+
+        item.OnCountChanged.RemoveListener(listener);
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -121,7 +126,6 @@ public class ItemManager : MonoBehaviour
 
         Instance = this;
     }
-
 
     private void OnDestroy()
     {

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d74d1b29dc92be7799b7b3b9036389fa, type: 3}
-  m_Name: PlayerInfo
+  m_Name: Boombox
   m_EditorClassIdentifier: Assembly-CSharp::ItemInfo
   type: 2
-  itemName: Player
+  itemName: Boombox
   sprite: {fileID: 0}
   description: Can select music
   isPurchaseOnce: 1
