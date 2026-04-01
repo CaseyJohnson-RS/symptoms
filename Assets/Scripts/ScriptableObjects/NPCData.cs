@@ -5,8 +5,8 @@ using UnityEngine;
 [Serializable]
 public struct QuestionAnswer
 {
-    public string question;
-    public string answer;
+    [Multiline] public string question;
+    [Multiline] public string answer;
 };
 
 [CreateAssetMenu(fileName = "NPCData", menuName = "Scriptable Objects/NPCData")]
@@ -24,8 +24,9 @@ public class NPCData : ScriptableObject
     [SerializeField] private bool eyes;
     [SerializeField] private bool armpits;
 
-    [Header("Images"), Space(3)]
-    [SerializeField] private Sprite appearanceImage;
+    [Header("Assets"), Space(3)]
+    [SerializeField] private Sprite sprite;
+    [SerializeField] private AudioClip voiceClip;
 
     [Header("Conversations"), Space(3)]
     [SerializeField] private List<QuestionAnswer> dialog;
@@ -48,7 +49,8 @@ public class NPCData : ScriptableObject
     public bool SymptomEyes => eyes;
     public bool SymptomArmpits => armpits;
 
-    public Sprite AppearanceImage => appearanceImage;
+    public Sprite Sprite => sprite;
+    public AudioClip VoiceClip => voiceClip;
 
     public List<QuestionAnswer> Dialog => dialog;
 

@@ -12,3 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bebad63d5507046b60f30202f7b5e4, type: 3}
   m_Name: NPCData
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
+  _name: 
+  infected: 0
+  temperature: 0
+  heartRate: 0
+  arms: 0
+  mouth: 0
+  eyes: 0
+  armpits: 0
+  sprite: {fileID: 0}
+  voiceClip: {fileID: 0}
+  dialog:
+  - question: 
+    answer: 
+  passingPhrase: 
+  stayingPhrase: 
