@@ -281,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7833957158093550474, guid: 80314f2630e22ee43894c6c6a7bb3d2c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -299,6 +299,10 @@ PrefabInstance:
     - target: {fileID: 3526544683020570951, guid: bc9e55241f9048f4a8f994b0ddd87cfe, type: 3}
       propertyPath: m_Name
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526544683020570951, guid: bc9e55241f9048f4a8f994b0ddd87cfe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8766483660160495213, guid: bc9e55241f9048f4a8f994b0ddd87cfe, type: 3}
       propertyPath: m_LocalPosition.x
