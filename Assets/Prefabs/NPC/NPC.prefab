@@ -43,10 +43,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3526544683020570951}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ae0ae1a8c066834da3d9de38e02027a, type: 3}
+  m_Script: {fileID: 11500000, guid: 36096fc6b2e94af74a9cb82ae75906e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPS
-  sprite: {fileID: 0}
 --- !u!95 &1272838854249467631
 Animator:
   serializedVersion: 7
@@ -57,7 +56,7 @@ Animator:
   m_GameObject: {fileID: 3526544683020570951}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eda602de1d01314498509da0688a2270, type: 2}
+  m_Controller: {fileID: 9100000, guid: 51d7c8870bf1d203eaa3a4e2145439f4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
