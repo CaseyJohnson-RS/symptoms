@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7bebad63d5507046b60f30202f7b5e4, type: 3}
+  m_Name: Bandana
+  m_EditorClassIdentifier: Assembly-CSharp::NPCData
+  _name: "\u042D\u0440\u0438\u043A \u0421\u0430\u0444\u043E\u043D\u043E\u0432"
+  infected: 1
+  temperature: 40.2
+  heartRate: 120
+  arms: 1
+  mouth: 1
+  eyes: 0
+  armpits: 1
+  sprite: {fileID: 5541892618569611599, guid: ceb918f28724325468a5cb0b1eb7d033, type: 3}
+  voiceClip: {fileID: 8300000, guid: e3915aee755bdcb44a6e6b3b344f959e, type: 3}
+  dialog:
+  - question: 
+    answer: 
+  passingPhrase: "\u041F\u0430\u0440\u043E\u0447\u043A\u0430 \u0431\u0443\u0442\u044B\u043B\u0435\u0439
+    \u0438 \u044F \u0431\u0443\u0434\u0443 \u043A\u0430\u043A \u043D\u043E\u0432\u0435\u043D\u044C\u043A\u0438\u0439"
+  stayingPhrase: "\u0413\u043E\u043B\u043E\u0432\u0430 \u0431\u043E\u043B\u0438\u0442..."
