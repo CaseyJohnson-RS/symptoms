@@ -15,6 +15,7 @@
 !/Assets/ScriptableObjects/
 !/Assets/Scenes/
 !/Assets/Sprites/
+!/Assets/Audio/
 
 # Разрешить ВСЁ содержимое нужных папок
 !/Assets/Textures/**
@@ -25,6 +26,7 @@
 !/Assets/ScriptableObjects/**
 !/Assets/Scenes/**
 !/Assets/Sprites/**
+!/Assets/Audio/**
 
 # Разрешить .gitignore
 !/.gitignore

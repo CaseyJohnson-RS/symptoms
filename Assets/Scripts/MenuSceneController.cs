@@ -8,7 +8,7 @@ public class MenuSceneController : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.Instance.PlayAudio(music);
+        AudioManager.Instance.Play(music);
     }
 
     public void StartGame()

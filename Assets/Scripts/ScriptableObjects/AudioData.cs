@@ -13,4 +13,5 @@ public class AudioData : ScriptableObject
     public AudioMixerGroup AudioGroup => audioGroup;
     public bool IsShort => isShort;
     public bool IsLoop => isLoop;
+    public float ClipLength => clip.length;
 }
