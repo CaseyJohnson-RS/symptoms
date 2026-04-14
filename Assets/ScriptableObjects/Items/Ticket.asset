@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemInfo
   type: 0
   itemName: Ticket
-  sprite: {fileID: 0}
+  sprite: {fileID: -388016416825665147, guid: 3ea9d5e44c83b9a41aadd3e88a3eca6e, type: 3}
   description: Your money
   isPurchaseOnce: 0
+  cost: 0

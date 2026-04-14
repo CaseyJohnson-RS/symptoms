@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[Serializable]
-public struct Item
-{
-    [SerializeField] public ItemData Data;
-    [SerializeField] public int Count;
-    [SerializeField] public UnityEvent<Item> OnCountChanged;
-    public readonly bool IsPresent => Count > 0;
-}
 
-public class ItemManager : MonoBehaviour
+public class ItemStorage : MonoBehaviour
 {
+    [Serializable]
+    public class Item
+    {
+        [SerializeField] public ItemData Data;
+        [SerializeField] public int Count;
+        public bool IsPresent => Count > 0;
+    }
+
     [SerializeField] private Item ticket;
     [SerializeField] private List<Item> items;
 
     public Item Ticket => ticket;
     public List<Item> Items => items;
 
-    public static ItemManager Instance { get; private set; }
+    public static ItemStorage Instance { get; private set; }
 
     public void AddTickets(int count)
     {
@@ -30,7 +30,6 @@ public class ItemManager : MonoBehaviour
         }
 
         ticket.Count += count;
-        ticket.OnCountChanged.Invoke(ticket);
     }
 
     public void RemoveTickets(int count)
@@ -46,7 +45,6 @@ public class ItemManager : MonoBehaviour
         }
 
         ticket.Count -= count;
-        ticket.OnCountChanged.Invoke(ticket);
     }
 
     public Item GetItem(ItemType type)
@@ -62,9 +60,8 @@ public class ItemManager : MonoBehaviour
         {
             throw new InvalidOperationException($"Предмет {item.Data.Name} уже куплен");
         }
-
+        
         item.Count++;
-        item.OnCountChanged.Invoke(item);
     }
 
     public void RemoveItem(ItemType type)
@@ -81,41 +78,42 @@ public class ItemManager : MonoBehaviour
         }
 
         item.Count--;
-        item.OnCountChanged.Invoke(item);
     }
 
-    public void AddListenerOnTickets(UnityAction<Item> listener)
+    public bool BuyItem(ItemType type) // Safe function
     {
-        ticket.OnCountChanged.AddListener(listener);
-    }
+        Item item = GetItem(type);
 
-    public void RemoveListenerFromTickets(UnityAction<Item> listener)
-    {
-        ticket.OnCountChanged.RemoveListener(listener);
-    }
-
-    public void AddListenerOnItem(ItemType type, UnityAction<Item> listener)
-    {
-        Item item = items.Find(item => item.Data.Type == type);
-        if (item.Data == null)
+        if (item.IsPresent && item.Data.IsPurchaseOnce) // Early check for transaction consistancy
+            return false;
+        
+        try
         {
-            throw new ArgumentException($"Предмет типа {type} не найден");
+            RemoveTickets(item.Data.Cost);
+            AddItem(type); // Won't throw any exception
+        }
+        catch (ArgumentException)
+        {
+            return false;
         }
 
-        item.OnCountChanged.AddListener(listener);
+        return true;
     }
 
-    public void RemoveListenerFromItem(ItemType type, UnityAction<Item> listener)
+    public bool SpendItem(ItemType type)  // Safe function
     {
-        Item item = items.Find(item => item.Data.Type == type);
-        if (item.Data == null)
+        Item item = GetItem(type);
+        if (item.IsPresent)
         {
-            throw new ArgumentException($"Предмет типа {type} не найден");
+            --item.Count;
+            return true;
         }
-
-        item.OnCountChanged.RemoveListener(listener);
+        else
+        {
+            return false;
+        }
     }
-
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)

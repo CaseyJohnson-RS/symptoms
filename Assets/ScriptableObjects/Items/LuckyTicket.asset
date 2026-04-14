@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74d1b29dc92be7799b7b3b9036389fa, type: 3}
+  m_Name: LuckyTicket
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  type: 3
+  itemName: Lucky Ticket
+  sprite: {fileID: 6009478965193959185, guid: 1811737e23b603e4bb46727d667d5dd3, type: 3}
+  description: 'Yeah yeah Yeah yeah Yeah yeah Yeah yeah Yeah yeah Yeah yeah Yeah
+    yeah Yeah yeah Yeah yeah Yeah yeah Yeah yeah Yeah yeah Yeah yeah Yeah yeah Yeah
+    yeah Yeah yeah Yeah yeah Yeah yeah Yeah yeah Yeah yeah Yeah yeah Yeah yeah Yeah
+    yeah Yeah yeah Yeah yeah Yeah yeah '
+  isPurchaseOnce: 1
+  cost: 80

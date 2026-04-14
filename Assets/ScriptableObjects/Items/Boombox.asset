@@ -15,5 +15,8 @@ MonoBehaviour:
   type: 2
   itemName: Boombox
   sprite: {fileID: 0}
-  description: Can select music
+  description: Can select musicCan select musicCan select musicCan select musicCan
+    select musicCan select musicCan select musicCan select musicCan select musicCan
+    select musicCan select music
   isPurchaseOnce: 1
+  cost: 100
