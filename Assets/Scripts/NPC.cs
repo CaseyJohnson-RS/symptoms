@@ -1,51 +1,63 @@
+using UnityEngine.Events;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 
 public class NPC : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer; // Check this if you need several sprite visuals beheviour
+
+    [Space(5)] public UnityEvent onEnter;
+    [Space(5)] public UnityEvent onPass;
+    [Space(5)] public UnityEvent onStay;
+
+    [SerializeField] private Image mainImage;
+    [SerializeField] private Image outerShadowImage;
+    [SerializeField] private TextMeshProUGUI _name;
     private Animator anim;
 
     private void Start()
     {
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
 
-    public void SetSprite(Sprite sprite)
+    private float GetAnimLength()
     {
-        spriteRenderer.sprite = sprite;
+        AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
+
+        float speed = state.speed * state.speedMultiplier * anim.speed;
+        float duration = state.length / speed;
+        return duration;
     }
 
     public float Enter() // Return animation duration
     {
-        // TODO: anim
-        return 2f;
+        anim.Play("Enter");
+        onEnter.Invoke();
+
+        return GetAnimLength();
     }
 
-    public float GoBack() // Return animation duration
+    public float Stay() // Return animation duration
     {
         // TODO: anim
-        return 2f;
+        anim.Play("Stay");
+        onStay.Invoke();
+        return GetAnimLength();
+
     }
     
-    public float GoForward() // Return animation duration
+    public float Pass() // Return animation duration
     {
         // TODO: anim
-        return 2f;
-
+        anim.Play("Pass");
+        onPass.Invoke();
+        return GetAnimLength();
     }
 
-    public static NPC CreateNPC(NPCData data, GameObject prefab)
+    public void UpdateNPC(NPCData data)
     {
-        GameObject npcObject = Instantiate(prefab, Vector3.zero, Quaternion.identity);
-        NPC npcComponent = npcObject.GetComponent<NPC>();
-
-        if (!npcComponent)
-            throw new MissingComponentException("Missing NPC component!");
-
-        npcComponent.SetSprite(data.Sprite);
-
-        return npcComponent;
+        mainImage.sprite = data.Sprite;
+        outerShadowImage.sprite = data.Sprite;
+        _name.text = data.Name;
     }
 }

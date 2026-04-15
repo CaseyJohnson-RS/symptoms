@@ -3,10 +3,17 @@ using System;
 using UnityEngine;
 
 [Serializable]
+public struct TextDelta
+{
+    [Multiline] public string text;
+    [Range(0.1f, 2f)] public float delay;
+}
+
+[Serializable]
 public struct QuestionAnswer
 {
     [Multiline] public string question;
-    [Multiline] public string answer;
+    public List<TextDelta> answers;
 };
 
 [CreateAssetMenu(fileName = "NPCData", menuName = "Scriptable Objects/NPCData")]
@@ -29,11 +36,25 @@ public class NPCData : ScriptableObject
     [SerializeField] private AudioClip voiceClip;
 
     [Header("Conversations"), Space(3)]
-    [SerializeField] private List<QuestionAnswer> dialog;
 
-    [Space(3)]
-    [SerializeField] private string passingPhrase;
-    [SerializeField] private string stayingPhrase;
+    [SerializeField, Tooltip("Слова, которые говорит персонаж при входе в комнату")]
+    private List<TextDelta> entryLines;
+
+    [Space(4)]
+
+    [SerializeField, Tooltip("Диалог игрока с персонажем в виде простого вопрос-ответ")]
+    private List<QuestionAnswer> dialog;
+
+    [Space(4)]
+
+    [SerializeField, Tooltip("Фразы, которые говорит NPC при разрешении пройти дальше")]
+    private List<TextDelta> passingLines;
+
+    [Space(4)]
+
+
+    [SerializeField, Tooltip("Фразы, которые говорит NPC при запрете на прохождение дальше")]
+    private List<TextDelta> stayingLines;
 
 
     // Interface
@@ -52,8 +73,10 @@ public class NPCData : ScriptableObject
     public Sprite Sprite => sprite;
     public AudioClip VoiceClip => voiceClip;
 
+    public List<TextDelta> EntryLines => entryLines;
+
     public List<QuestionAnswer> Dialog => dialog;
 
-    public string PassingPhrase => passingPhrase;
-    public string StayingPhrase => stayingPhrase;
+    public List<TextDelta> PassingLines => passingLines;
+    public List<TextDelta> StayingLines => stayingLines;
 }

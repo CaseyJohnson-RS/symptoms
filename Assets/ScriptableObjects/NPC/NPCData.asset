@@ -22,8 +22,25 @@ MonoBehaviour:
   armpits: 0
   sprite: {fileID: 0}
   voiceClip: {fileID: 0}
+  entryLines:
+  - text: '1 1 1 1 1 1 1 '
+    delay: 0.5
+  - text: 2 2 2 2 2 2 2 2
+    delay: 0
   dialog:
-  - question: 
-    answer: 
-  passingPhrase: 
-  stayingPhrase: 
+  - question: "\u0412\u043E\u043F\u0440\u043E\u0441?"
+    answers:
+    - text: "\u041E\u0442\u0432\u0435\u0442!"
+      delay: 0
+    - text: "\u041E\u0442\u0432\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0435
+        \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435!"
+      delay: 0
+  - question: "\u0412\u0442\u043E\u0440\u043E\u0439 \u0432\u043E\u043F\u0440\u043E\u0441?"
+    answers:
+    - text: "\u041E\u0442\u0432\u0435\u0442!"
+      delay: 0
+    - text: "\u041E\u0442\u0432\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0435
+        \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435!"
+      delay: 0
+  passingLines: []
+  stayingLines: []
