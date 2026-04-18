@@ -10,9 +10,11 @@ public class NumberCounter : MonoBehaviour
     [SerializeField] private float duration = 1.5f;
     [SerializeField] private string format = "F0";
 
+    public UnityEvent onCounterChange;
     public UnityEvent onEnd;
 
     private Coroutine _routine;
+    private int _lastDisplayedNumber = -1;
 
     public void AnimateTo(float target)
     {
@@ -30,12 +32,23 @@ public class NumberCounter : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             float t = elapsed / duration;
-            float eased = 1f - Mathf.Pow(1f - t, 3f); // EaseOutCubic
-            label.text = Mathf.Lerp(0f, target, eased).ToString(format);
+            float eased = 1f - Mathf.Pow(1f - t, 3f);
+            float currentValue = Mathf.Lerp(0f, target, eased);
+            int displayedNumber = Mathf.RoundToInt(currentValue);
+
+            // Вызываем событие только если число изменилось
+            if (displayedNumber != _lastDisplayedNumber)
+            {
+                label.text = displayedNumber.ToString(format);
+                onCounterChange.Invoke();
+                _lastDisplayedNumber = displayedNumber;
+            }
+
             yield return null;
         }
 
         label.text = target.ToString(format);
+        _lastDisplayedNumber = Mathf.RoundToInt(target);
         _routine = null;
         onEnd.Invoke();
     }

@@ -232,6 +232,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls: []
+  clickDelay: 0.25
 --- !u!114 &4449053828324074206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b70b4ec5b9efa41a3270064e617083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioClient
+  playOnEnable: {fileID: 0}
 --- !u!1 &6897853134547387614
 GameObject:
   m_ObjectHideFlags: 0

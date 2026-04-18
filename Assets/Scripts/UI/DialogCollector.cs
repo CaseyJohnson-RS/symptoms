@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class DialogCollector : MonoBehaviour
@@ -9,6 +10,8 @@ public class DialogCollector : MonoBehaviour
     [SerializeField] private GameObject PlayerMessagePrefab;
     [SerializeField, Range(0.01f, 1f)] private float typingDelay = 0.01f;
     [SerializeField] private RectTransform contentParent;
+
+    public UnityEvent onSingleType;
 
     private List<TextMeshProUGUI> chatMessages;
 
@@ -35,15 +38,12 @@ public class DialogCollector : MonoBehaviour
 
     private IEnumerator TypeText(TextMeshProUGUI target, string text)
     {
-        target.text = text;
-        target.ForceMeshUpdate();
-        target.maxVisibleCharacters = 0;
+        target.text = "";
 
-        int totalCharacters = target.textInfo.characterCount;
-
-        for (int i = 0; i <= totalCharacters; i++)
+        for (int i = 0; i < text.Length; i++)
         {
-            target.maxVisibleCharacters = i;
+            target.text += text[i];
+            onSingleType.Invoke();
             yield return new WaitForSeconds(typingDelay);
         }
     }

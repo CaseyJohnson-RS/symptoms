@@ -99,7 +99,7 @@ public class DialogManager : MonoBehaviour
     public IEnumerator FadeIn()
     {
         yield return StartCoroutine(FadeRoutine(1f, 0.1f));
-        ShowEntryLines();
+        Invoke("ShowEntryLines", 2f);
     }
 
     private IEnumerator FadeRoutine(float targetAlpha, float duration)
