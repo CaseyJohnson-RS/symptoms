@@ -37,6 +37,7 @@ public class OptionCollector : MonoBehaviour
 
     public void SetOptions(List<QuestionAnswer> qalist, Action<int> callback)
     {
+        Clear();
         for(int i = 0; i < qalist.Count; ++i)
         {
             int index = i;

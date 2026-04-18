@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3df7466e7c1cc4fbbca51cb06b07ea, type: 3}
+  m_Name: SpriteData
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteData
+  bodyParts:
+  - name: eyes
+    ill:
+    - {fileID: -1616826730230913489, guid: 6e348de054c62414a84873f5fbbc9ebd, type: 3}
+    - {fileID: -6524399028924159768, guid: ba02d575dc366f342ba2fa2d9e943d18, type: 3}
+    healthy:
+    - {fileID: -1978974887120999512, guid: 60eaae705be4ce14291c0edb403112fa, type: 3}
+    - {fileID: 5477477089815290524, guid: 7c63975c6d92b5a4f8f088699d9be87d, type: 3}
+  - name: mouths
+    ill:
+    - {fileID: -8133002492523339680, guid: 2a0a40833cbb01d44b9e0ff9bdda0d95, type: 3}
+    - {fileID: -3353986376284546695, guid: 7b8f35b971139f54f834d6c7b534c370, type: 3}
+    healthy:
+    - {fileID: 2071434843034323520, guid: 98c094a680a4ac647be4c9ac8a219dfc, type: 3}
+    - {fileID: -2596488704858587397, guid: b0b869991907ec84593b288fa15cbbbd, type: 3}
+  - name: arms
+    ill:
+    - {fileID: -6028405582103050847, guid: 2b2c6b45fba2ecc4fac6d7bb2bfc68f8, type: 3}
+    - {fileID: 8017706554577823955, guid: 2ccbb2da60ea56848ab95f7a554bae60, type: 3}
+    - {fileID: 705800124101378355, guid: 59b15530eb077ee40af7ce876756c819, type: 3}
+    healthy:
+    - {fileID: -8143266143050833207, guid: 7e84fe147a77ace498e9de7351be09a6, type: 3}
+    - {fileID: -712245911059780963, guid: 4838a4ee400c063418faabc9ce255b5e, type: 3}
+    - {fileID: 2356292070191911955, guid: 54ee4e04141e85849bff85dba35e1fb0, type: 3}
+    - {fileID: -808496954089366030, guid: 56e532839936caf42a3ec917bc4adbd9, type: 3}
+  - name: armpits
+    ill:
+    - {fileID: -8693635870337997114, guid: 1885de94d353e63469a2cbb7840ac2d6, type: 3}
+    healthy:
+    - {fileID: -7954245532553554094, guid: 90fda4aababc28a459a15bb6a2011037, type: 3}
+    - {fileID: -1833996315017616118, guid: 2fbd1366e566ad54d8204137f6c134b2, type: 3}

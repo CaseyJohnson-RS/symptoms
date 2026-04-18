@@ -8619,7 +8619,6 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - GLOW_ON
-  - UNDERLAY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

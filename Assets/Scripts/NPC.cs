@@ -15,7 +15,7 @@ public class NPC : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _name;
     private Animator anim;
 
-    private void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
     }

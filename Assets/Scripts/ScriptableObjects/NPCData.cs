@@ -21,6 +21,7 @@ public class NPCData : ScriptableObject
 {
     [Header("Common values"), Space(3)]
     [SerializeField] private string _name;
+    [SerializeField] private bool male;
     [SerializeField] private bool infected;
 
     [Header("Symptoms"), Space(3)]
@@ -60,6 +61,8 @@ public class NPCData : ScriptableObject
     // Interface
 
     public string Name => _name;
+    public bool Male => male;
+
     public bool Infected => infected;
 
     public float Temperature => temperature;

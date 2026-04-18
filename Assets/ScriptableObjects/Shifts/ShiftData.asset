@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50678e05df759494a96189c921502eb8, type: 3}
   m_Name: ShiftData
   m_EditorClassIdentifier: Assembly-CSharp::ShiftData
-  reward: 0
-  penalty: 0
+  reward: 100
+  penalty: 150
   _NPCList:
   - {fileID: 11400000, guid: f215f22cb8420fa4e9bd29e1d6e2d733, type: 2}
   - {fileID: 11400000, guid: e07b75566b67e98498b3f784cef1205f, type: 2}
