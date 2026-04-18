@@ -15,5 +15,15 @@ MonoBehaviour:
   reward: 100
   penalty: 150
   _NPCList:
+  - {fileID: 11400000, guid: 7e1637b95df03864c8e06fda8fe039ae, type: 2}
+  - {fileID: 11400000, guid: fec78758beedc044ba086f6a77be6cb5, type: 2}
+  - {fileID: 11400000, guid: e587dd3499c56a845b0eab8b28e03f68, type: 2}
+  - {fileID: 11400000, guid: c027858d9e9763445945c17eb6bd93e9, type: 2}
+  - {fileID: 11400000, guid: 8e3ed290b6c210543bc20b748bac77a9, type: 2}
+  - {fileID: 11400000, guid: 4ea90916750da7a409e28aebe15eab4f, type: 2}
+  - {fileID: 11400000, guid: 020544ba88cce1a49b785359a847f1cc, type: 2}
   - {fileID: 11400000, guid: f215f22cb8420fa4e9bd29e1d6e2d733, type: 2}
   - {fileID: 11400000, guid: e07b75566b67e98498b3f784cef1205f, type: 2}
+  - {fileID: 11400000, guid: 9b0dc5049e9550d4eadd8386a2fa2497, type: 2}
+  - {fileID: 11400000, guid: f5c4c0ac3c15370439e362eae2533bd5, type: 2}
+  - {fileID: 11400000, guid: 5eba038d8497f944ca559d7fe7beecfa, type: 2}

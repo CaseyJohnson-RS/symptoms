@@ -73,9 +73,12 @@ public class ShiftManager : MonoBehaviour
         // Анимирует уход и вызывает ручку отказа в Dialog Manager
         SetControllsInteract(false);
         desicions.Add(true);
-        float duration = npc.Pass();
-        dialogManager.Clear();
-        Invoke("Next", duration);
+        Invoke("PostAllowPass", dialogManager.ShowPassingLines());
+    }
+
+    public void PostAllowPass()
+    {
+        Invoke("Next", npc.Pass());
         onAllow.Invoke();
     }
 
@@ -84,9 +87,12 @@ public class ShiftManager : MonoBehaviour
         // Анимирует проход и вызывает ручку пропуска в Dialog Manager
         SetControllsInteract(false);
         desicions.Add(false);
-        float duration = npc.Stay();
-        dialogManager.Clear();
-        Invoke("Next", duration);
+        Invoke("PostRefusePass", dialogManager.ShowStayingLines());
+    }
+
+    public void PostRefusePass()
+    {
+        Invoke("Next", npc.Stay());
         onRefuse.Invoke();
     }
 
@@ -110,9 +116,12 @@ public class ShiftManager : MonoBehaviour
             return;
         }
 
-         if (currentNPCDataIndex == 1)
+        if (currentNPCDataIndex == 1)
             onFirstNPCLeft.Invoke();
         
+        dialogManager.Clear();
+        
+
         // Setup
         npc.UpdateNPC(shiftData.NPCList[currentNPCDataIndex]);
         dialogManager.SetDialog(

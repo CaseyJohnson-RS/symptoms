@@ -84,6 +84,7 @@ public class DialogManager : MonoBehaviour
 
     public void Clear()
     {
+        StopAllCoroutines();
         StartCoroutine(FadeOut());
     }
 

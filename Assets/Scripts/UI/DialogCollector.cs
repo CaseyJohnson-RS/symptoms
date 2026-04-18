@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 
@@ -12,6 +13,8 @@ public class DialogCollector : MonoBehaviour
     [SerializeField] private RectTransform contentParent;
 
     public UnityEvent onSingleType;
+
+    public Scrollbar scrollbar;
 
     private List<TextMeshProUGUI> chatMessages;
 
@@ -44,6 +47,7 @@ public class DialogCollector : MonoBehaviour
         {
             target.text += text[i];
             onSingleType.Invoke();
+            scrollbar.value = 0f;
             yield return new WaitForSeconds(typingDelay);
         }
     }
@@ -53,9 +57,8 @@ public class DialogCollector : MonoBehaviour
         foreach(var message in messages)
         {
             TextMeshProUGUI obj = Instantiate(NPCMessagePrefab, contentParent).GetComponent<TextMeshProUGUI>();
-            yield return StartCoroutine(TypeText(obj, message.text));
             chatMessages.Add(obj);
-
+            yield return StartCoroutine(TypeText(obj, message.text));
             yield return new WaitForSeconds(message.delay);
         }
     }
@@ -66,13 +69,14 @@ public class DialogCollector : MonoBehaviour
     {
         StopAllCoroutines();
         foreach(var message in chatMessages)
-            Destroy(message);
+            Destroy(message.gameObject);
         chatMessages.Clear();
     }
 
     // Returns duration of typing messages
     public float SendNPCMessages(List<TextDelta> messages)
     {
+        StopAllCoroutines();
         StartCoroutine(TypeText(messages));
         return GetMessagesTypingDuration(messages);
     }
@@ -80,6 +84,7 @@ public class DialogCollector : MonoBehaviour
     // Returns duration of typing message
     public float SendPlayerMessage(string text)
     {
+        StopAllCoroutines();
         TextMeshProUGUI message = Instantiate(PlayerMessagePrefab, contentParent).GetComponent<TextMeshProUGUI>();
         StartCoroutine(TypeText(message, text));
         chatMessages.Add(message);
