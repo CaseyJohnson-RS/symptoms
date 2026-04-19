@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bebad63d5507046b60f30202f7b5e4, type: 3}
   m_Name: Normis
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
-  _name: "\u0415\u0432\u0433\u0435\u043D\u0438\u0439 \u041A\u0430\u043B\u0438\u043D\u0438\u043D"
+  _name: "\u0418\u0432\u0430\u043D \u0418\u0432\u0430\u043D\u043E\u0432"
   male: 1
   infected: 0
   temperature: 36.6
@@ -46,7 +46,7 @@ MonoBehaviour:
       delay: 0
   passingLines:
   - text: "\u042D\u0442\u043E \u0437\u0434\u043E\u0440\u043E\u0432\u043E."
-    delay: 0
+    delay: 0.1
   stayingLines:
   - text: "\u041D\u0443 \u043B\u0430\u0434\u043D\u043E."
-    delay: 1
+    delay: 0.1
