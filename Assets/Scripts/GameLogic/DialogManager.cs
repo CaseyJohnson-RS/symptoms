@@ -69,7 +69,7 @@ public class DialogManager : MonoBehaviour
     public float ShowPassingLines()
     {
         optionCollector.Deactivate();
-        float duration = dialogCollector.SendNPCMessages(passingLines);
+        float duration = dialogCollector.SendNPCMessages(passingLines) + 2f;
         Invoke("Clear", duration);
         return duration;
     }
@@ -77,7 +77,7 @@ public class DialogManager : MonoBehaviour
     public float ShowStayingLines()
     {
         optionCollector.Deactivate();
-        float duration = dialogCollector.SendNPCMessages(stayingLines);
+        float duration = dialogCollector.SendNPCMessages(stayingLines) + 2f;
         Invoke("Clear", duration);
         return duration;
     }
